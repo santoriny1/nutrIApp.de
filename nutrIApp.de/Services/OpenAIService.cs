@@ -17,7 +17,7 @@ public class OpenAIService
     {
         string prompt = GeneratePrompt(recommendationType, location);
         Response<Completions> response = await client.GetCompletionsAsync(
-            "text-davinci-003", // assumes a matching model deployment or model name
+            "gpt-3.5-turbo-instruct", // assumes a matching model deployment or model name
             prompt);
         StringWriter sw = new StringWriter();
         foreach (Choice choice in response.Value.Choices)
