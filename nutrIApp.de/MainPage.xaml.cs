@@ -1,24 +1,42 @@
-﻿namespace nutrIApp.de;
+﻿using nutrIApp.de.Services;
+
+namespace nutrIApp.de;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+	OpenAIService openAIService;
 
-	public MainPage()
+	public MainPage(OpenAIService svc)
 	{
+		openAIService = svc;
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	private async void OnRestaurantClicked(object sender, EventArgs e)
 	{
-		count++;
+		await GetRecommendation("restaurant");
+	}
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+	private async void OnHotelClicked(object sender, EventArgs e)
+	{
+		await GetRecommendation("hotel");
+	}
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
+	private async void OnAttractionClicked(object sender, EventArgs e)
+	{
+		await GetRecommendation("attraction");
+	}
+
+	private async Task GetRecommendation(string recommendationType)
+	{
+		if (string.IsNullOrWhiteSpace(LocationEntry.Text))
+		{
+			await DisplayAlert("Empty location", "Please enter a location (city or postal code)", "OK");
+			return;
+		}
+		SmallLabel.Text = "Working on it...This can take a little while based on the model selected.";
+		var message = await openAIService.CallOpenAI(recommendationType, LocationEntry.Text);
+		SmallLabel.Text = message;
 	}
 }
 
