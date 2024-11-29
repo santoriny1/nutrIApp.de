@@ -21,7 +21,21 @@
                 Placeholder="Enter your location"
                 SemanticProperties.Hint="Enter the location for recommendations"
                 HorizontalOptions="Center"/>
-                
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Center">
+
+                <Label
+                    Text="Generate image"
+                    VerticalOptions="Center"/>
+
+                <CheckBox
+                    x:Name="IncludeImageChk"
+                    VerticalOptions="Center"/>
+
+            </StackLayout>
+
             <Button
                 x:Name="RestaurantBtn"
                 Text="Get restaurant recommendations"
@@ -48,6 +62,12 @@
                 Text="Click a button for recommendations!"
                 SemanticProperties.HeadingLevel="Level2"
                 FontSize="18"
+                HorizontalOptions="Center"/>
+
+            <Image 
+                x:Name="GeneratedImage"
+                WidthRequest="256"
+                HeightRequest="256"
                 HorizontalOptions="Center"/>
 
         </VerticalStackLayout>

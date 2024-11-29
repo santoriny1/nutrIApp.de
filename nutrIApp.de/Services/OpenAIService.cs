@@ -1,4 +1,3 @@
-using System;
 using Azure;
 using Azure.AI.OpenAI;
 
@@ -36,7 +35,7 @@ public class OpenAIService
         options.ChoiceCount = 1;
         options.Messages.Add(new ChatMessage(ChatRole.User, prompt));
         var response = await client.GetChatCompletionsAsync(
-            "gpt-3.5-turbo-16k", // assumes a matching model deployment or model name
+            "gpt-4o-mini", // assumes a matching model deployment or model name
             options);
         StringWriter sw = new StringWriter();
         foreach (ChatChoice choice in response.Value.Choices)
