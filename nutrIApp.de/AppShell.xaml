@@ -4,12 +4,71 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:nutrIApp.de"
+    xmlns:views="clr-namespace:nutrIApp.de.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="nutrIApp.de">
 
-    <ShellContent
+    <Tab
+        IsEnabled="False">
+
+        <ShellContent
+            Shell.TabBarForegroundColor="AliceBlue"
+            NavigationPage.HasNavigationBar="False"
+            Route="welcomepage"
+            ContentTemplate="{DataTemplate views:WelcomePage}"/>
+
+    </Tab>
+
+    <FlyoutItem
+        Title="Main"
+        Route="main"
+        FlyoutItemIsVisible="False">
+
+        <Tab
+            Title="Home"
+            Icon="home">
+
+            <ShellContent
+                Route="homepage"
+                ContentTemplate="{DataTemplate views:HomePage}"/>
+
+        </Tab>
+
+        <Tab
+            Title="Work Out"
+            Icon="workout">
+
+            <ShellContent
+                Route="workoutpage"
+                ContentTemplate="{DataTemplate views:WorkOutPage}"/>
+
+        </Tab>
+
+        <Tab
+            Title="Progress"
+            Icon="progress">
+
+            <ShellContent
+                Route="progresspage"
+                ContentTemplate="{DataTemplate views:ProgressPage}"/>
+
+        </Tab>
+
+        <Tab
+            Title="Profile"
+            Icon="profile">
+
+            <ShellContent
+                Route="profilepage"
+                ContentTemplate="{DataTemplate views:ProfilePage}"/>
+
+        </Tab>
+
+    </FlyoutItem>
+
+        <!-- <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" /> -->
 
 </Shell>

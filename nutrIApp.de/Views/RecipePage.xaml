@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nutrIApp.de.Views.RecipePage"
+             Title="Lunch">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Image
+                WidthRequest="200"
+                HeightRequest="200"
+                Source="lunch.jpg"/>
+            <Label
+                Padding="0,10"
+                Text="Roasted Salmon with Smoky Chickpeas and Greens!"
+                FontAttributes="Italic"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+            <Grid Padding="20"
+                    ColumnDefinitions="Auto, 1*"
+                    RowDefinitions="Auto, Auto">
+
+                <!-- Ingredients Header (First Column) -->
+                <Label Text="Ingredients"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Start"
+                       TextColor="Black"
+                       Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="0,0,10,5"/>
+
+                <!-- Directions Header (Second Column) -->
+                <Label Text="Directions"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Start"
+                       TextColor="Black"
+                       Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="0,0,10,5"/>
+
+                <!-- Ingredients List (First Column) -->
+                <StackLayout Padding="10"
+                        Grid.Row="1"
+                        Grid.Column="0">
+                    <Label Text="• 1 salmon fillet (150-200g)"
+                            FontSize="12"
+                            TextColor="Black"/>
+                    <Label Text="• 1/4 can chickpeas, drained and rinsed"
+                            FontSize="12"
+                            TextColor="Black"/>
+                    <Label Text="• 1/2 cup mixed greens (spinach, kale, etc.)"
+                            FontSize="12"
+                            TextColor="Black"/>
+                    <Label Text="• 1 tsp olive oil"
+                            FontSize="12"
+                            TextColor="Black"/>
+                    <Label Text="• 1/4 tsp smoked paprika"
+                            FontSize="12"
+                            TextColor="Black"/>
+                    <Label Text="• Salt and pepper to taste"
+                            FontSize="12"
+                            TextColor="Black"/>
+                </StackLayout>
+
+                <!-- Directions List (Second Column, Resumed Steps) -->
+                <StackLayout Padding="10"
+                        Grid.Row="1"
+                        Grid.Column="1">
+                    <Label Text="• Preheat oven to 400°F (200°C)."
+                            FontSize="12"
+                            TextColor="Black"/>
+                    <Label Text="• Place salmon on baking sheet, drizzle with olive oil, season."
+                            FontSize="12"
+                            TextColor="Black"/>
+                    <Label Text="• Roast for 12-15 minutes until flaky."
+                            FontSize="12"
+                            TextColor="Black"/>
+                    <Label Text="• Sauté chickpeas for 3-4 mins until crispy."
+                            FontSize="12"
+                            TextColor="Black"/>
+                    <Label Text="• Wilt greens for 1-2 minutes."
+                            FontSize="12"
+                            TextColor="Black"/>
+                    <Label Text="• Serve salmon topped with chickpeas and greens."
+                            FontSize="12"
+                            TextColor="Black"/>
+                </StackLayout>
+
+            </Grid>
+
+            <BoxView
+                HeightRequest="3"
+                Color="{StaticResource 1}"/>
+
+            <Label
+                HorizontalOptions="Center"
+                Padding="0,10,0,0"
+                FontAttributes="Bold"
+                FontSize="22"
+                TextColor="{StaticResource Black}"
+                Text="Get A New Equivalent Recipe!"/>
+
+            <VerticalStackLayout Padding="20"
+                    Spacing="15">
+
+                <!-- Protein Section -->
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Protein"
+                           FontSize="20"
+                           FontAttributes="Bold"/>
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Label Text="Would you like to change the option of the previous recipe?"
+                               FontSize="14"
+                               VerticalOptions="Center"
+                               Grid.Column="0"/>
+                        <CheckBox x:Name="ProteinCheckBox"
+                                  Grid.Column="1"
+                                  VerticalOptions="Center"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- Carbs Section -->
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Carbs"
+                           FontSize="20"
+                           FontAttributes="Bold"/>
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Label Text="Would you like to change the option of the previous recipe?"
+                               FontSize="14"
+                               VerticalOptions="Center"
+                               Grid.Column="0"/>
+                        <CheckBox x:Name="CarbsCheckBox"
+                                  Grid.Column="1"
+                                  VerticalOptions="Center"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- Healthy Fats Section -->
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Healthy Fats"
+                           FontSize="20"
+                           FontAttributes="Bold"/>
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Label Text="Would you like to change the option of the previous recipe?"
+                               FontSize="14"
+                               VerticalOptions="Center"
+                               Grid.Column="0"/>
+                        <CheckBox x:Name="HealthyFatsCheckBox"
+                                  Grid.Column="1"
+                                  VerticalOptions="Center"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- Fiber Section -->
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Fiber"
+                           FontSize="20"
+                           FontAttributes="Bold"/>
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Label Text="Would you like to change the option of the previous recipe?"
+                               FontSize="14"
+                               VerticalOptions="Center"
+                               Grid.Column="0"/>
+                        <CheckBox x:Name="FiberCheckBox"
+                                  Grid.Column="1"
+                                  VerticalOptions="Center"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- Vegetables Section -->
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Vegetables"
+                           FontSize="20"
+                           FontAttributes="Bold"/>
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Label Text="Would you like to change the option of the previous recipe?"
+                               FontSize="14"
+                               VerticalOptions="Center"
+                               Grid.Column="0"/>
+                        <CheckBox x:Name="VegetablesCheckBox"
+                                  Grid.Column="1"
+                                  VerticalOptions="Center"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+
+            <Button
+                BackgroundColor="{StaticResource 2}"
+                x:Name="GeneratetBtn"
+                Text="Get new recipe!"
+                Clicked="GeneratetBtn_Clicked"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Padding="0,10"
+                x:Name="SmallLabel"
+                Text="Click the button to get a new recipe!"
+                FontSize="16"
+                HorizontalOptions="Center"/>
+
+            <Image
+                Margin="0,10"
+                x:Name="GeneratedImage"
+                WidthRequest="256"
+                HeightRequest="256"
+                HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

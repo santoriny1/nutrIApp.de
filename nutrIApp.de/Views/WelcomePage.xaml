@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nutrIApp.de.Views.WelcomePage"
+    Title="Welcome!">
+
+    <VerticalStackLayout>
+        
+        <Image
+            Source="logo2.png"/>
+
+        <Button 
+            Text="Welcome to Nutri-Scio!"
+            TextColor="White"
+            BackgroundColor="{StaticResource 2}"
+            FontSize="18"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Clicked="Button_Clicked"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>

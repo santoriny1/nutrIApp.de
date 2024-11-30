@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using nutrIApp.de.Services;
+using nutrIApp.de.ViewModels;
+using nutrIApp.de.Views;
 
 namespace nutrIApp.de;
 
@@ -15,8 +17,19 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+		
+		builder.Services.AddSingleton<HomePageViewModel>();
 
-		builder.Services.AddTransient<MainPage>();
+		builder.Services.AddTransient<WelcomePage>();
+		builder.Services.AddTransient<HomePage>();
+		builder.Services.AddTransient<WorkOutPage>();
+		builder.Services.AddTransient<ProgressPage>();
+		builder.Services.AddTransient<ProfilePage>();
+		builder.Services.AddTransient<RecipePage>();
+
+
+
+		// builder.Services.AddTransient<MainPage>();
 
 		OpenAIService svc = new OpenAIService();
 		svc.Initialize(Constants.OpenAIKey);

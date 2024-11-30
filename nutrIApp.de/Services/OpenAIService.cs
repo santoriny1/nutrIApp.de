@@ -12,30 +12,14 @@ public class OpenAIService
         client = new OpenAIClient(openAIKey);
     }
 
-    internal async Task<string> CallOpenAI(string recommendationType, string location)
+    internal async Task<string> CallOpenAIChat(string promptPT2, string prevRecipe)
     {
-        string prompt = GeneratePrompt(recommendationType, location);
-        Response<Completions> response = await client.GetCompletionsAsync(
-            "gpt-3.5-turbo-instruct", // assumes a matching model deployment or model name
-            prompt);
-        StringWriter sw = new StringWriter();
-        foreach (Choice choice in response.Value.Choices)
-        {
-            var text = choice.Text.TrimStart(trimChars);
-            sw.WriteLine(text);
-        }
-        var message = sw.ToString();
-        return message;
-    }
-
-    internal async Task<string> CallOpenAIChat(string recommendationType, string location)
-    {
-        string prompt = GeneratePrompt(recommendationType, location);
+        string prompt = GeneratePrompt(promptPT2, prevRecipe);
         ChatCompletionsOptions options = new ChatCompletionsOptions();
         options.ChoiceCount = 1;
         options.Messages.Add(new ChatMessage(ChatRole.User, prompt));
         var response = await client.GetChatCompletionsAsync(
-            "gpt-4o-mini", // assumes a matching model deployment or model name
+            "gpt-4o-mini",
             options);
         StringWriter sw = new StringWriter();
         foreach (ChatChoice choice in response.Value.Choices)
@@ -47,8 +31,8 @@ public class OpenAIService
         return message;
     }
 
-    private static string GeneratePrompt(string recommendationType, string location)
+    private static string GeneratePrompt(string promptPT2, string prevRecipe)
     {
-        return $"What is a recommended {recommendationType} near {location}";
+        return $"You are a skilled nutritionist with deep knowledge of balanced nutrition and an exceptional sense of taste. Your task is to analyze an existing recipe called {prevRecipe} and, based on requested changes, create a new version of the recipe that is healthy, delicious, and coherent in terms of macronutrients and flavors. {promptPT2}. Finally, summarize the recipe to the most essential ingredients and steps to carry it out and do not mention anything about the analysis of the previous recipe..";
     }
 }

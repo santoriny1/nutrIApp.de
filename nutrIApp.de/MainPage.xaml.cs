@@ -48,7 +48,7 @@ public partial class MainPage : ContentPage
 				return;
 			}
 			SmallLabel.Text = "Working on it...This can take a little while based on the model selected.";
-			var message = await openAIService.CallOpenAI(recommendationType, LocationEntry.Text);
+			var message = await openAIService.CallOpenAIChat(recommendationType, LocationEntry.Text);
 			if (IncludeImageChk.IsChecked)
 			{
 				var imagePrompt = $"Show some fun things to do in {LocationEntry.Text} when visiting a {recommendationType}.";
